@@ -167,6 +167,10 @@ class BindMenu extends MusicBeatState
 
         FlxG.camera.follow(camFollow, null, 0.06);
 		super.create();
+
+        #if android
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 	}
 
 	override function update(elapsed:Float)
