@@ -181,26 +181,26 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = false;
                 rebindText.visible = false;
                 rebindText2.visible = false;
-                if (FlxG.keys.justPressed.UP)
+                if (controls.UP_P)
 				{
 					
 					changeItem(-1);
 				}
 
-				if (FlxG.keys.justPressed.DOWN)
+				if (controls.DOWN_P)
 				{
 					
 					changeItem(1);
 				}
 
-                if (FlxG.keys.justPressed.ENTER){
+                if (controls.ACCEPT){
                     FlxG.sound.play(Paths.sound("scrollMenu"), 1, false);
                    
                     state = "input";
                     
                     
                 }
-                else if(FlxG.keys.justPressed.ESCAPE){
+                else if(controls.BACK){
                     FlxG.sound.play(Paths.sound('cancelMenu'));
                     quit();
                 }
@@ -219,12 +219,12 @@ class BindMenu extends MusicBeatState
                 rebindBG.visible = true;
                 rebindText.visible = true;
                 rebindText2.visible = true;
-                if(FlxG.keys.justPressed.ESCAPE){
+                if(controls.BACK){
                     keys[curSelected] = tempKey;
                     state = "select";
                     FlxG.sound.play(Paths.sound("cancelMenu"), 1, false);
                 }
-                else if(FlxG.keys.justPressed.ANY && !FlxG.keys.justPressed.UP && !FlxG.keys.justPressed.DOWN && !FlxG.keys.justPressed.LEFT && !FlxG.keys.justPressed.RIGHT){
+                else if(FlxG.keys.justPressed.ANY && !controls.UP_P && !controls.DOWN_P && !controls.LEFT_P && !controls.RIGHT_P){
                     addKey(FlxG.keys.getIsDown()[0].ID.toString());
                     save();
                     state = "select";
@@ -239,7 +239,7 @@ class BindMenu extends MusicBeatState
 
         }
 
-        if(FlxG.keys.justPressed.ANY && !FlxG.keys.justPressed.UP && !FlxG.keys.justPressed.DOWN && !FlxG.keys.justPressed.LEFT && !FlxG.keys.justPressed.RIGHT){
+        if(FlxG.keys.justPressed.ANY && !controls.UP_P && !controls.DOWN_P && !controls.LEFT_P && !controls.RIGHT_P){
 			textUpdate();
              
         }
